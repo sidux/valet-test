@@ -34,7 +34,7 @@ jobs:
       - name: Execute tests
         run: |
           #sudo security authorizationdb read com.apple.trust-settings.admin > "$HOME/.config/valet/apple-trust-settings"
-          sudo security authorizationdb write com.apple.trust-settings.admin allow
+          #sudo security authorizationdb write com.apple.trust-settings.admin allow
           valet install
           valet link toto
           valet secure toto
