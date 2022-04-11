@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push: ~
+  pull_request: ~
+
+jobs:
+  tests:
+    runs-on: macos-latest
+
+    name: Valet
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: dom, curl, libxml, mbstring, zip, fileinfo
+          ini-values: error_reporting=E_ALL
+          tools: composer:v2
+          coverage: none
+      
+      - name: Install dependencies
+        run: composer global require laravel/valet
+
+      - name: Path composer
+        run: |
+          echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
+          source ~/.bashrc
+
+      - name: Execute tests
+        run: |
+          valet install
