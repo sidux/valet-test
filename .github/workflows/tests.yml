@@ -34,3 +34,6 @@ jobs:
       - name: Execute tests
         run: |
           valet install
+          valet tld lan
+          valet link toto
+          valet secure toto
