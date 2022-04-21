@@ -1,9 +1,7 @@
 name: Tests
 
 on:
-  pull_request:
-      paths:
-      - 'file1.yml'
+  pull_request: ~
 
 jobs:
   tests:
