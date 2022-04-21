@@ -1,7 +1,7 @@
 on:
   pull_request:
     paths:
-      - 'test2.yml'
+      - 'file2.yml'
 name: Test2
 jobs:
   checks:
