@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - uses: dorny/paths-filter@v2
-        name: changes
+        id: changes
         with:
           filters: |
             change:
