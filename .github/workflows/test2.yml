@@ -1,14 +1,20 @@
 on:
-  pull_request:
-    paths:
-      - 'file2.yml'
+  pull_request: ~
 name: Test2
 jobs:
   checks:
     name: Checks
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        name: changes
+        with:
+          filters: |
+            change:
+              - 'file2.yml'
       - name: Test
+        if: steps.changes.outputs.change == 'true'
         run: exit 1
