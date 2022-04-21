@@ -1,0 +1,10 @@
+on:
+  pull_request: ~
+name: Test2
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        run: exit 1
