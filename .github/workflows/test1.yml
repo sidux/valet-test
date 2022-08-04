@@ -11,6 +11,8 @@ jobs:
     runs-on: macos-latest
 
     name: Valet
+    
+    if: github.event.label.name == 'ready'
 
     steps:
       - name: Checkout code
