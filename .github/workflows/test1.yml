@@ -3,13 +3,17 @@ name: Tests
 on:
   pull_request: 
     types: [ labeled ]
+  pull_request_target:
+    types: [review_requested]
 
 jobs:
   tests:
     runs-on: macos-latest
 
     name: Valet
-
+    
+    if: ${{ github.event.requested_team.name == 'octo-team'}}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
