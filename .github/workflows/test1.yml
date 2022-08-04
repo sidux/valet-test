@@ -11,9 +11,7 @@ jobs:
     runs-on: macos-latest
 
     name: Valet
-    
-    if: ${{ github.event.requested_team.name == 'octo-team'}}
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
